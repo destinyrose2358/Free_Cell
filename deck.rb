@@ -35,7 +35,7 @@ class Deck
         nil
     end
 
-    def take(n)
+    def draw(n = 1)
         raise "Not enough cards" if n > count
         cards.shift(n)
     end

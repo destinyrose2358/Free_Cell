@@ -16,13 +16,7 @@ class CardSpace
     end
 
     def place(card)
-        raise "This is not allowed to go here" unless placement_condition.call(top_card, card)
-        cards.push(card)
-        nil
-    end
-
-    def place!(card)
-        cards.push(card)
+        cards.concat(card)
         nil
     end
 
@@ -32,6 +26,10 @@ class CardSpace
             output += " " + card.to_s
         end
         output
+    end
+    
+    def can_accept?(card)
+        placement_condition.call(top_card, card)
     end
 
     private

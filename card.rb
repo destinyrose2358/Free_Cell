@@ -80,6 +80,8 @@ class Card
   end
 
   def to_s
-    (VALUE_STRINGS[value] + SUIT_STRINGS[suit]).colorize(:color => self.color, :background => :white)
+    string = VALUE_STRINGS[value] + SUIT_STRINGS[suit]
+    string = " " + string if string.length < 3
+    string.colorize(:color => self.color, :background => :white)
   end
 end
