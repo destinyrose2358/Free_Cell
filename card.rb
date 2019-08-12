@@ -26,7 +26,8 @@ class Card
     :ace   => "A"
   }
 
-  BLACKJACK_VALUE = {
+  FREECELL_VALUE = {
+    :ace => 1,
     :deuce => 2,
     :three => 3,
     :four  => 4,
@@ -59,6 +60,10 @@ class Card
     end
 
     @suit, @value = suit, value
+  end
+
+  def freecell_value
+    FREECELL_VALUE[value]
   end
 
   # Compares two cards to see if they're equal in suit & value.
