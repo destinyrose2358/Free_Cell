@@ -28,11 +28,9 @@ class CardSpace
 
     def to_s
         output = ""
-
         cards.each do |card|
             output += " " + card.to_s
         end
-
         output
     end
 

@@ -37,9 +37,9 @@ class Card
     :eight => 8,
     :nine  => 9,
     :ten   => 10,
-    :jack  => 10,
-    :queen => 10,
-    :king  => 10
+    :jack  => 11,
+    :queen => 12,
+    :king  => 13
   }
 
   # Returns an array of all suits.
@@ -75,8 +75,11 @@ class Card
     end
   end
 
+  def color
+    [:spades, :clubs].include?(suit) ? :black : :red
+  end
+
   def to_s
-    color = [:spades, :clubs].include?(suit) ? :black : :red
-    (VALUE_STRINGS[value] + SUIT_STRINGS[suit]).colorize(:color => color, :background => :white)
+    (VALUE_STRINGS[value] + SUIT_STRINGS[suit]).colorize(:color => self.color, :background => :white)
   end
 end
