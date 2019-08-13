@@ -16,4 +16,7 @@ class Cells < CardSpace
         nil
     end
 
+    def [](index)
+        [cards[index]] if cards[index]
+    end
 end
